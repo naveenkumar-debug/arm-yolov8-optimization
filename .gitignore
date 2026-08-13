@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+people.mp4
+runs/
+*.pt
+baseline_512.onnx
+yolov8n_512.onnx
+yolov8n_512_int8.onnx
+
+*.swp
+validation/
