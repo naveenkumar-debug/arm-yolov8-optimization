@@ -72,3 +72,14 @@ The optimized configuration achieved:
 
 The objective is to demonstrate practical AI workload optimization
 for ARM-based edge devices.
+
+## Benchmark Evidence
+
+### Baseline FP32
+![Baseline Result](baseline-result.png)
+
+### Optimized INT8 - 4 Threads
+![Optimized Result](int8-4thread-result.png)
+
+### Performance Comparison
+![Comparison](benchmark-results.png)
