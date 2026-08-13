@@ -26,13 +26,34 @@ CPU inference.
 | Model Size | 6.25 MB | 3.41 MB |
 | Temperature | 48.95°C | 60.98°C |
 
-## Optimization Techniques
+## Optimization Approach
 
-- ONNX Runtime CPU inference
-- Static INT8 quantization
-- 4-thread execution
-- Reduced input resolution
-- ARM CPU benchmarking
+The optimization was implemented as a sequence of steps:
+
+1. **FP32 Baseline**  
+   YOLOv8n was first benchmarked as the baseline configuration on the ARM-based Raspberry Pi.
+
+2. **ONNX Runtime**  
+   The YOLOv8 model was converted to ONNX and executed using ONNX Runtime for CPU inference.
+
+3. **Static INT8 Quantization**  
+   The model was converted to a static INT8 ONNX model to reduce computational and memory requirements.
+
+4. **Input Resolution Optimization**  
+   The optimized pipeline uses a 512×512 input resolution to reduce the computational workload.
+
+5. **4-Thread CPU Execution**  
+   ONNX Runtime was configured to use 4 intra-operation CPU threads and 1 inter-operation thread.
+
+### Optimization Configuration
+
+- Execution Provider: CPU
+- Intra-op threads: 4
+- Inter-op threads: 1
+- Execution mode: ORT_SEQUENTIAL
+- Input resolution: 512×512
+- Model format: ONNX
+- Quantization: Static INT8
 
 ## Performance Improvement
 
